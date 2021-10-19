@@ -73,7 +73,7 @@ const services = {
             //Generate Token
             const authToken = jwt.sign(
                 {userId : user._Id, email : user.email},
-                JWT_SECRET
+                process.env.JWT_SECRET
             );
 
             console.log(authToken);

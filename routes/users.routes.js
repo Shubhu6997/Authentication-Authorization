@@ -5,8 +5,6 @@ route.post("/register", service.register);
 
 route.post("/login", service.login);
 
-
-
 module.exports = route;
 
 

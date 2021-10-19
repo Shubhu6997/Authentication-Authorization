@@ -25,9 +25,10 @@ const services = {
         try {
             console.log("POST method is called");
             console.log(req.body);
-            console.log(req.user);
+            console.log("req.user : ",req.user);
             //db.posts.insertOne()
-            const data = await db.posts.insertOne({...req.body, userId : req.user._id});
+            //const data = await db.posts.insertOne({...req.body, userId : req.user._id});
+            const data = await db.posts.insertOne({...req.body});
             console.log(data);
             res.send({_id: data.insertedId ,...req.body});
         } catch (error) {
@@ -59,6 +60,7 @@ const services = {
         try {
             console.log("DELETE method is called");
             //db.posts.remove()
+            console.log(req.param);
             await db.posts.deleteOne({_id : ObjectId(req.params.id)});
             res.end("Deleted Record Successfully");
         } catch (error) {
